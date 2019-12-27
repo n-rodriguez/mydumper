@@ -1,0 +1,37 @@
+name: mydumper
+
+version: 0.1.0
+
+crystal: 0.36.1
+
+license: MIT
+
+authors:
+  - Nicolas Rodriguez <nico@nicoladmin.fr>
+
+targets:
+  mydumper:
+    main: src/mydumper.cr
+
+dependencies:
+  admiral:
+    github: jwaldrip/admiral.cr
+  cron_parser:
+    github: kostya/cron_parser
+  crystal-env:
+    github: crystal-lang/crystal-env
+    branch: master
+  email:
+    github: arcage/crystal-email
+  mysql:
+    github: crystal-lang/crystal-mysql
+  sidekiq:
+    github: kalinon/sidekiq.cr
+    branch: master
+  systemd_notify:
+    github: serge-name/systemd_notify.cr
+    branch: master
+  terminal_table:
+    github: benoist/terminal_table.cr
+  timecop:
+    github: crystal-community/timecop.cr

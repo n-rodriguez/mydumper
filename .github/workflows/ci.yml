@@ -1,0 +1,48 @@
+---
+name: Github CI
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+
+    services:
+      mariadb:
+        image: 'mariadb:10.5'
+        ports: ['3306:3306']
+        env:
+          MYSQL_ROOT_PASSWORD: root
+        options: >-
+          --health-cmd "mysqladmin ping"
+          --health-interval 10s
+          --health-timeout 10s
+          --health-retries 10
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install Crystal
+        run:  |
+          curl -fsSL https://crystal-lang.org/install.sh | sudo bash -s -- --crystal=0.36.1
+          sudo apt-get install -y libyaml-dev
+
+      - name: Set DB Adapter
+        # See: https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-README.md#mysql
+        run: |
+          mysql -u root -proot -h 127.0.0.1 -P 3306 -e 'create database my_db_name;'
+          mysql -u root -proot -h 127.0.0.1 -P 3306 -e 'use my_db_name; create table table1 (name varchar(100)); create table table2 (name varchar(100));'
+
+          mysql -u root -proot -h 127.0.0.1 -P 3306 -e 'create database foo;'
+          mysql -u root -proot -h 127.0.0.1 -P 3306 -e 'use foo; create table table1 (name varchar(100)); create table table2 (name varchar(100));'
+
+          mysql -u root -proot -h 127.0.0.1 -P 3306 -e 'create database bar;'
+          mysql -u root -proot -h 127.0.0.1 -P 3306 -e 'use bar; create table table1 (name varchar(100)); create table table2 (name varchar(100));'
+
+      - name: Install dependencies
+        run: make deps
+
+      - name: Run tests
+        run: make spec

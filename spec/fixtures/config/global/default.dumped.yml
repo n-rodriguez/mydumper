@@ -1,0 +1,23 @@
+---
+environment: production
+log_file: ./log/mydumper.log
+log_level: info
+backup_dir: /var/backups
+skip_databases: []
+commands:
+  mysql_client_path: /usr/bin/mysql
+  mysql_dump_path: /usr/bin/mysqldump
+  tar_path: /usr/bin/tar
+sidekiq:
+  redis:
+    hostname: localhost
+    port: 6379
+    db: 0
+    pool_size: 4
+  webserver:
+    host: localhost
+    port: 3000
+    secret: a5258a32-7d71-4c51-84a5-3615962cf009
+  worker:
+    concurrency: 2
+jobs: []

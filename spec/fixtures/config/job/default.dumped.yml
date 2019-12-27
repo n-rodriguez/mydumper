@@ -1,0 +1,14 @@
+---
+name: Daily Backup - localhost
+vault: localhost/daily
+run_at: '* * * * *'
+credentials:
+  host: localhost
+  port: "3306"
+  user: root
+  pass: root
+backup_databases:
+- my_db_name
+skip_databases: []
+show_tables_query: SHOW TABLES
+max_allowed_packet: 128M

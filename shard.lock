@@ -1,0 +1,82 @@
+version: 2.0
+shards:
+  admiral:
+    git: https://github.com/jwaldrip/admiral.cr.git
+    version: 1.11.2
+
+  baked_file_system:
+    git: https://github.com/schovi/baked_file_system.git
+    version: 0.9.8+git.commit.7183bfde8d86a976a6912f582b51cbd1783456af
+
+  cron_parser:
+    git: https://github.com/kostya/cron_parser.git
+    version: 0.3.0
+
+  crystal-env:
+    git: https://github.com/crystal-lang/crystal-env.git
+    version: 0.1.0+git.commit.be17067ae807386f28751b6b8f3dc343f6c2607a
+
+  db:
+    git: https://github.com/crystal-lang/crystal-db.git
+    version: 0.10.0
+
+  email:
+    git: https://github.com/arcage/crystal-email.git
+    version: 0.6.2
+
+  exception_page:
+    git: https://github.com/crystal-loot/exception_page.git
+    version: 0.1.4
+
+  json_mapping:
+    git: https://github.com/crystal-lang/json_mapping.cr.git
+    version: 0.1.0
+
+  kemal:
+    git: https://github.com/kemalcr/kemal.git
+    version: 0.27.0
+
+  kemal-csrf:
+    git: https://github.com/kemalcr/kemal-csrf.git
+    version: 0.7.0
+
+  kemal-session:
+    git: https://github.com/kemalcr/kemal-session.git
+    version: 0.12.1
+
+  kilt:
+    git: https://github.com/jeromegn/kilt.git
+    version: 0.4.0
+
+  mysql:
+    git: https://github.com/crystal-lang/crystal-mysql.git
+    version: 0.13.0
+
+  pool:
+    git: https://github.com/ysbaddaden/pool.git
+    version: 0.2.3
+
+  radix:
+    git: https://github.com/luislavena/radix.git
+    version: 0.3.9
+
+  redis:
+    git: https://github.com/stefanwille/crystal-redis.git
+    version: 2.6.0
+
+  sidekiq:
+    git: https://github.com/kalinon/sidekiq.cr.git
+    version: 0.7.0+git.commit.b7b101810dd739b0fc48aecff11e33d5949fd80e
+
+  systemd_notify:
+    git: https://github.com/serge-name/systemd_notify.cr.git
+    version: 0.1.2+git.commit.9bbe6003e76a062117c755d8cf7fc30f78f45fab
+
+  terminal_table:
+    git: https://github.com/benoist/terminal_table.cr.git
+    version: 0.1.0+git.commit.a14e244219a6a7b804b3491bafcff73f4b74855e
+
+  timecop:
+    git: https://github.com/crystal-community/timecop.cr.git
+    version: 0.4.1
+

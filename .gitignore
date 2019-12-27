@@ -1,0 +1,15 @@
+# Ignore generated data
+/docs/
+/lib/
+
+# Ignore all bin files
+/bin/*
+!/bin/.keep
+
+# Ignore all log files
+/log/*
+!/log/.keep
+
+# Ignore config files
+mydumper.yml
+.env

@@ -1,0 +1,49 @@
+---
+log_file: ./log/mydumper.log
+log_level: debug
+
+backup_dir: /data/mysql-backup
+
+skip_databases:
+  - performance_schema
+  - information_schema
+  - mysql
+
+jobs:
+  - name: Daily Backup - localhost
+
+    vault: localhost/daily
+
+    credentials:
+      host: localhost
+      port: 3306
+      user: root
+      pass: root
+
+    backup_databases:
+      - my_db_name
+
+
+  - name: Daily Backup - mysql.example.corp
+
+    vault: mysql.example.corp/daily
+
+    credentials:
+      host: mysql.example.corp
+      port: 3306
+      user: root
+      pass: root
+
+    backup_databases: auto
+    skip_databases:
+      - foo
+
+    show_tables_query: "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='%{db_name}' AND TABLE_NAME NOT LIKE 'dataface__view%{percent}';"
+
+    max_allowed_packet: 128M
+
+sidekiq:
+  redis:
+    hostname: 127.0.0.1
+    port: 6379
+    db: 1

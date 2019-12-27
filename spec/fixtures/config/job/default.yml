@@ -1,0 +1,13 @@
+---
+name: Daily Backup - localhost
+
+vault: localhost/daily
+
+credentials:
+  host: localhost
+  port: 3306
+  user: root
+  pass: root
+
+backup_databases:
+  - my_db_name
